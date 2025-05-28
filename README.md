@@ -1,6 +1,6 @@
 <div align="center">
     <p style="margin-top: 10px; font-size: 26px; font-weight: 600;">Zafran - A dumb C progress bar 🚀</p>
-    <div style="margin: 0px 28px;">
+    <div style="margin: 0px 5px 28px;">
         <img style="border-radius: 15px;" src="https://s1.ezgif.com/tmp/ezgif-162c216780516f.gif">
     </div>
 </div>
