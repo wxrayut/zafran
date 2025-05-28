@@ -85,7 +85,7 @@ void zf_demo() {
 }
 
 
-int main( int argc, char *argv[] ) {
+int main( void ) {
 
     zf_demo();
 
