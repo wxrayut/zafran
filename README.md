@@ -1,4 +1,4 @@
-## Zafran - A dumb C progress bar 🚀
+## Zafran - A dumb progress bar for C 🚀
 
 <div align="center">
     <img src="https://s1.ezgif.com/tmp/ezgif-162c216780516f.gif">
