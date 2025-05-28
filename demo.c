@@ -26,7 +26,7 @@ void zf_demo() {
 
     /* Set various visual styles */
     zf_set_prefix( &bar, "Working" );
-    zf_set_ncols( &bar, 100 );
+    zf_set_ncols( &bar, 50 );
     zf_set_fill_char( &bar, '=', ' ' );
     zf_set_bar_format( &bar, "default" );
 
@@ -44,7 +44,7 @@ void zf_demo() {
     /* Change prefix and suffix mid-progress. */
     zf_set_prefix( &bar, "Preparing" );
     zf_set_fill_char( &bar, '$', '.' );
-    zf_set_ncols( &bar, 100 );
+    zf_set_ncols( &bar, 50 );
     zf_set_bar_format( &bar, "default" );
 
     for ( size_t i = 0; i < bar.total; i++ ) {
@@ -70,7 +70,7 @@ void zf_demo() {
     /* Try with a "download" format */
     zf_set_prefix( &bar, "Downloading" );
     zf_set_fill_char( &bar, '#', '.' );
-    zf_set_ncols( &bar, 100 );
+    zf_set_ncols( &bar, 50 );
     zf_set_bar_format( &bar, "download" );
     zf_update_suffix( &bar, "📦" );
 
