@@ -1,7 +1,7 @@
 ## Zafran - A dumb progress bar for C 🚀
 
 <div align="center">
-    <img src="https://s1.ezgif.com/tmp/ezgif-162c216780516f.gif">
+    <img src="https://github.com/wxrayut/zafran/blob/main/assets/demo.gif?raw=true">
 </div>
 <br>
 
