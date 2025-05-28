@@ -1,0 +1,38 @@
+---
+BasedOnStyle: LLVM
+
+SortIncludes: false
+
+IndentPPDirectives: AfterHash
+
+SpacesInParentheses: true
+PointerAlignment: Right
+ReferenceAlignment: Right
+QualifierAlignment: Left
+
+BreakBeforeBraces: Custom
+BraceWrapping: 
+IndentWidth: 4
+ColumnLimit: 150
+
+AlignAfterOpenBracket: true
+AlignConsecutiveAssignments:
+    Enabled: true
+    AcrossEmptyLines: true
+    AcrossComments: true
+    AlignFunctionPointers: true
+    PadOperators: true
+
+AlignConsecutiveDeclarations: true
+AlignConsecutiveMacros: true
+AlignConsecutiveBitFields:
+    Enabled: true
+    AcrossEmptyLines: true
+    AcrossComments: false 
+
+AlignTrailingComments:
+  Kind: Always
+  OverEmptyLines: 2
+
+MaxEmptyLinesToKeep: 2
+AllowShortLoopsOnASingleLine: false

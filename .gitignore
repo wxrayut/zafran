@@ -1,0 +1,15 @@
+
+# Cache directories
+.cache
+
+# Automation scripts.
+scripts
+
+# Compilation database. 
+compile_commands.json
+
+# Compiled executables.
+*.exe
+
+# A specific compiled file named 'main' (common in simple C programs).
+main
