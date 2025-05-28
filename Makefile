@@ -2,7 +2,7 @@
 UNAME_S := $(shell uname -s)
 
 CC := gcc
-CFLAGS := -Wall -Wextra -pedantic -std=c99 -O2 -Iinclude
+CFLAGS := -Wall -Wextra -pedantic -std=c99 -O2 -Wno-implicit-function-declaration -Iinclude
 
 # Source files
 SRC := src/zafran.c
