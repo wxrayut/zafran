@@ -1,0 +1,71 @@
+
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set platform name (lowercase)
+        id: platform
+        run: echo "OS_NAME=$(echo "$RUNNER_OS" | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Extract version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Build library
+        run: |
+          mkdir -p build
+          make lib
+
+      - name: Install zip on Windows
+        if: runner.os == 'Windows'
+        run: choco install zip -y
+
+      - name: Create zip archive
+        run: |
+          mkdir -p dist/include
+          mkdir -p dist/lib
+          cp include/zafran.h dist/include/
+          cp -r build/* dist/lib/
+          cd dist && zip -r ../zafran-${{ steps.platform.outputs.OS_NAME }}-${{ steps.version.outputs.VERSION }}.zip include lib
+        shell: bash
+
+      - name: Upload zipped archive as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zafran-${{ steps.platform.outputs.OS_NAME }}-${{ steps.version.outputs.VERSION }}
+          path: zafran-${{ steps.platform.outputs.OS_NAME }}-${{ steps.version.outputs.VERSION }}.zip
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/**/*.zip
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
